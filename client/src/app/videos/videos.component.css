@@ -1,0 +1,14 @@
+#images {
+  clear: left;
+  width: 1700px;
+}
+
+.preview-poster {
+  float: left;
+}
+
+.preview-poster img {
+  width: 291px;
+  height: 432px;
+  margin: 15px 15px 15px 15px;
+}

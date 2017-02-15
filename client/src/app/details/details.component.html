@@ -1,0 +1,87 @@
+<div *ngIf="video" class="main-content">
+
+  <div class="details-section">
+
+    <div class="details-title-row">
+      <h1>This is the title{{video.title}}</h1>
+      <p>{{video.year}}</p>
+      <div>Rating</div>
+     <rating [movieId]="video.id" userName="jacky"></rating>
+
+
+    </div>
+
+    <div class="details-row">
+      <p>{{video.released}}</p>
+      <i class="fa fa-diamond" aria-hidden="true"></i>
+      <p>{{video.runtime}}</p>
+      <i class="fa fa-diamond" aria-hidden="true"></i>
+      <p>{{video.genre}}</p>
+      <i class="fa fa-diamond" aria-hidden="true"></i>
+      <p>{{video.released}}</p>
+    </div>
+
+    <div class="details-main">
+      <div class="details-image">
+        <img
+          src={{video.poster}}>
+      </div>
+
+
+      <div class="details-side">
+        <label> <span><i class="fa fa-trophy"
+                         aria-hidden="true"></i></span>
+        </label> <span>{{video.awards}}</span> <span>{{video.language}}</span>
+        <div class="details-row">
+          <p>{{video.plot}}</p>
+        </div>
+
+        <div class="details-row">
+          <div class="imp-person">
+            <label> <span>Director:</span>
+            </label>
+          </div>
+          <p>{{video.director}}</p>
+          <div class="imp-person">
+            <label> <span>Writers</span>
+            </label>
+          </div>
+          <p>{{video.writer}}</p>
+        </div>
+
+        <div class="details-row">
+          <div class="imp-person">
+            <label> <span>Starring</span>
+            </label>
+          </div>
+          <p>{{video.actors}}</p>
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class="details-row">
+
+      <label> <span>Metascore:</span></label>
+      <p>{{video.metaScore}}</p>
+      <label> <span>ImdbRating:</span>
+      </label>
+      <p>{{video.imdbRating}}</p>
+      <label> <span>Votes:</span>
+      </label>
+      <p>{{video.imdbVotes}}</p>
+
+    </div>
+
+    <div class="review-row"></div>
+
+
+  </div>
+
+  <div class="user-comments">
+    <user-comments></user-comments>
+
+  </div>
+
+</div>
