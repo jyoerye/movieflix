@@ -9,6 +9,8 @@ import movieflix.entity.UserRatings;
 public interface UserRatingsRepository extends JpaRepository<UserRatings, String>{
 	
 	List<UserRatings> findAll();
+	
+	public UserRatings  findByUserIdAndMovieId(String userId, String movieId);
 //	
 //	@Query("select u from UserRatings u where u.userId = ?1 and u.movieId =?2")
 //	UserRatings findRating(String userId,String movieId);

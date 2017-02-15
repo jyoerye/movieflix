@@ -1,7 +1,9 @@
 package movieflix.service;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 import movieflix.entity.User;
+import movieflix.entity.UserComments;
 
 public interface UserService {
 
@@ -17,4 +19,5 @@ public interface UserService {
 
 	public void save(User u);
 
+	public String logIn(String username, String password) throws IllegalArgumentException, UnsupportedEncodingException;
 }

@@ -26,13 +26,10 @@ public interface VideoRepository extends JpaRepository<Video, String> {
 
 	//@Query("select v from Video v where v.genre LIKE ?1")
 	List<Video> findByGenreIgnoreCaseContaining(String genre);
+	
 
-	List<Video> findAllByOrderByImdbRatingAsc();
+	List<Video> findAllByOrderByImdbRatingDesc();
 
-	List<Video> findAllByOrderByYearAsc();
-
-	List<Video> findAllByOrderByImdbVotesAsc();
-
-	// Movie save(Movie movie);
+	List<Video> findByTypeOrderByImdbRatingDesc(String type);
 
 }

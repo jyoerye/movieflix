@@ -1,10 +1,16 @@
 package movieflix.service;
 
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.exceptions.JWTCreationException;
 
 import movieflix.entity.User;
 import movieflix.repository.UserRepository;
@@ -63,4 +69,40 @@ public class UserServiceImpl implements UserService {
 
 	}
 
+	@Override
+	public String logIn(String username, String password)
+			throws IllegalArgumentException, UnsupportedEncodingException {
+		User u = repository.findByuserNameAndPassword(username, password);
+		String[] roles;
+		
+		System.out.println(u);
+		if (u != null) {
+			if(u.isAdmin())
+			{
+				roles= new String[2];
+				roles[0]="ROLE_USER";
+				roles[1]="ROLE_ADMIN";
+			}
+			else
+			{
+				roles= new String[1];
+				roles[0]="ROLE_USER";
+			}
+			String token = "";
+			try {
+				token = JWT.create().withIssuer("MOVIEFLIX")
+						.withClaim("username", username)
+						.withClaim("id", u.getId())
+						.withArrayClaim("role",roles)
+						.sign(Algorithm.HMAC256("secret"));
+				System.out.println("token "+token);
+			} catch (JWTCreationException exception) {
+				// Invalid Signing configuration / Couldn't convert Claims.
+			}
+			return token;
+		} else {
+			throw new RuntimeException("User not authenticated");
+		}
+
+	}
 }

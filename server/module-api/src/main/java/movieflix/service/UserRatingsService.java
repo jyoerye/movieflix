@@ -9,5 +9,7 @@ public interface UserRatingsService {
 	public List<UserRatings> findAll();
 
 	public void setUserRatings(String userName, String movieId, int rating);
+	
+	public UserRatings  findUserRatingsByUserName(String userName, String movieId);
 
 }

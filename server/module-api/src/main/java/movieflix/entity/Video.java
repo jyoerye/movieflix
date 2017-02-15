@@ -156,5 +156,13 @@ public class Video {
 	public void setType(String type) {
 		this.type = type;
 	}
+	@Override
+	public String toString() {
+		return "Video [id=" + id + ", title=" + title + ", year=" + year + ", rated=" + rated + ", released=" + released
+				+ ", runtime=" + runtime + ", genre=" + genre + ", director=" + director + ", writer=" + writer
+				+ ", actors=" + actors + ", plot=" + plot + ", language=" + language + ", country=" + country
+				+ ", awards=" + awards + ", poster=" + poster + ", metaScore=" + metaScore + ", imdbRating="
+				+ imdbRating + ", imdbVotes=" + imdbVotes + ", imdbId=" + imdbId + ", type=" + type + "]";
+	}
 	
 }

@@ -24,7 +24,7 @@ public class VideoServiceImpl implements VideoService {
 	@Override
 	@Transactional(readOnly = true)
 	public Video findOne(String id) {
-
+		System.out.println("Entering VideoService.findOne...");
 		return repository.findOne(id);
 	}
 
@@ -91,23 +91,55 @@ public class VideoServiceImpl implements VideoService {
 		// TODO Auto-generated method stub
 		return repository.findByGenreIgnoreCaseContaining(genre);
 	}
-
+	
+	
 	@Override
-	public List<Video> findAllByOrderByimdbratingAsc() {
+	public List<Video> sortByAllVideosImdbRating() {
 		// TODO Auto-generated method stub
-		return repository.findAllByOrderByImdbRatingAsc();
+		return repository.findAllByOrderByImdbRatingDesc();
 	}
 
 	@Override
 	public List<Video> findAllByOrderByYearAsc() {
 		// TODO Auto-generated method stub
-		return repository.findAllByOrderByYearAsc();
+		return null;
 	}
 
 	@Override
 	public List<Video> findAllByOrderByVotesAsc() {
 		// TODO Auto-generated method stub
-		return repository.findAllByOrderByImdbVotesAsc();
+		return null;
 	}
+
+	@Override
+	public List<Video> sortMoviesByImdbRating() {
+		
+		return repository.findByTypeOrderByImdbRatingDesc("movie");
+	}
+
+	@Override
+	public List<Video> sortSeriesByImdbRating() {
+		
+		return repository.findByTypeOrderByImdbRatingDesc("series");
+	}
+	
+
+//	@Override
+//	public List<Video> findAllByOrderByimdbrating() {
+//		// TODO Auto-generated method stub
+//		return repository.findAllByOrderByImdbRatingDesc();
+//	}
+
+//	@Override
+//	public List<Video> findAllByOrderByYearAsc() {
+//		// TODO Auto-generated method stub
+//		return repository.findAllOrderByYearAsc();
+//	}
+//
+//	@Override
+//	public List<Video> findAllByOrderByVotesAsc() {
+//		// TODO Auto-generated method stub
+//		return repository.findAllOrderByImdbVotesAsc();
+//	}
 
 }

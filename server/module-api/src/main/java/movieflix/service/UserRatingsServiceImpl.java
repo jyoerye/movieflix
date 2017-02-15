@@ -32,18 +32,29 @@ public class UserRatingsServiceImpl implements UserRatingsService {
 	@Override
 	@Transactional
 	public void setUserRatings(String userName, String movieId, int rating) {
-//		UserRatings existing = repository.findRating(userName, movieId);
-//		if (existing != null) {
-//			repository.updateRating(userName, movieId, rating);
-//		}
+		// UserRatings existing = repository.findRating(userName, movieId);
+		// if (existing != null) {
+		// repository.updateRating(userName, movieId, rating);
+		// }
 		User u = userRepository.findByuserName(userName);
 		Video m = videoRepository.findById(movieId);
 		UserRatingId ratingId = new UserRatingId();
 		ratingId.setUserId(u.getId());
 		ratingId.setMovieId(m.getId());
-		
-		UserRatings userRating = new UserRatings(ratingId,(float)rating);
+
+		UserRatings userRating = new UserRatings(ratingId, (float) rating);
 		repository.save(userRating);
+
+	}
+
+	@Override
+	@Transactional
+	public UserRatings findUserRatingsByUserName(String userName, String movieId) {
+
+		User u = userRepository.findByuserName(userName);
+		Video m = videoRepository.findById(movieId);
+
+		return repository.findByUserIdAndMovieId(u.getId(), m.getId());
 
 	}
 

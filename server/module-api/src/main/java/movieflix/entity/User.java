@@ -41,4 +41,10 @@ public class User {
 	public User() {
 		this.id = UUID.randomUUID().toString();
 	}
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", userName=" + userName + ", password=" + password + ", isAdmin=" + isAdmin + "]";
+	}
+	
+	
 }

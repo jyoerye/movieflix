@@ -27,10 +27,15 @@ public interface VideoService {
 
 	public List<Video> findByGenre(String genre);
 
-	public List<Video> findAllByOrderByimdbratingAsc();
+	//public List<Video> findAllByOrderByimdbratingAsc();
 
 	public List<Video> findAllByOrderByYearAsc();
 
 	public List<Video> findAllByOrderByVotesAsc();
+	
+	
+	public List<Video> sortByAllVideosImdbRating();
+	public List<Video> sortMoviesByImdbRating();
+	public List<Video> sortSeriesByImdbRating();
 
 }

@@ -1,16 +1,20 @@
 package movieflix.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import movieflix.entity.User;
 import movieflix.service.UserService;
 
+@CrossOrigin("http://localhost:4200")
 @RestController
 @RequestMapping(value = "users")
 public class UserController {
@@ -41,5 +45,10 @@ public class UserController {
 	public void delete(@PathVariable("id") String id) {
 
 		service.delete(id);
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/login") // hf
+	public String logIn(@RequestParam("userName") String userName,@RequestParam("password") String password) throws IllegalArgumentException, UnsupportedEncodingException {
+		return service.logIn(userName,password);
 	}
 }
