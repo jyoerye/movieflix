@@ -1,0 +1,39 @@
+<nav>
+  <div id="upper-nav">
+    <div id="logo"></div>
+
+    <div id="search">
+      <input type="text" placeholder="Search"><i
+      class="fa fa-search"></i>
+    </div>
+
+    <div id="user">
+      <i class="fa fa-user-circle"></i>
+      <p>{{username}}</p>
+    </div>
+  </div>
+
+
+  <div id="bottom-nav">
+    <div id="browse">
+      <ul>
+
+        <li><a routerLink="series" routerLinkActive="active">TV Shows</a></li>
+        <li><a routerLink="movies" routerLinkActive="active">Movies</a></li>
+        <li><a routerLink="videos" routerLinkActive="active">All Videos</a></li>
+        <li><a routerLink="videos/movies/top-rated" routerLinkActive="active">TopRatedMovies</a></li>
+        <li><a routerLink="videos/series/top-rated" routerLinkActive="active">TopRateSeries</a></li>
+
+        <li><a [routerLink]="[router.url,'sort-by-imdb-rating']" routerLinkActive="active">SortByImdbRating</a></li>
+
+
+      </ul>
+
+    </div>
+    <div id="sort">
+      <i class="fa fa-caret-down" aria-hidden="true"></i>
+      <p>Sort</p>
+    </div>
+  </div>
+
+</nav>

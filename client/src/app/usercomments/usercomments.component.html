@@ -1,0 +1,17 @@
+<i (click)="toggleCommentsView()" class="fa" aria-hidden="true"
+   [ngClass]="!flag?'fa-plus-square-o':'fa-minus-square-o'"></i>
+<template [ngIf]="flag">
+  <form (ngSubmit)="onSubmit()" #userCommentsForm="ngForm">
+ <textarea [(ngModel)]="comments" name="enteredComments" rows="3" cols="100" placeholder="Enter your comments here...">
+
+</textarea>
+    <button type="submit" class="btn btn-success" [disabled]="!userCommentsForm.form.valid">Submit</button>
+
+  </form>
+
+</template>
+
+<div  *ngFor="let comment of userComments" class="showcomments">
+
+  <p> {{comment.userComments}}</p>
+</div>
