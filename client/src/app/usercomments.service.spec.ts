@@ -1,5 +1,6 @@
 /* tslint:disable:no-unused-variable */
 
+/*
 import { TestBed, async, inject } from '@angular/core/testing';
 import { UsercommentsService } from './usercomments.service';
 
@@ -14,3 +15,4 @@ describe('UsercommentsService', () => {
     expect(service).toBeTruthy();
   }));
 });
+*/

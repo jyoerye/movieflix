@@ -28,11 +28,12 @@ module.exports = function (config) {
     },
     angularCli: {
       config: './angular-cli.json',
-      environment: 'dev'
+      environment: 'dev',
+      codeCoverage: true
     },
     reporters: config.angularCli && config.angularCli.codeCoverage
-              ? ['progress', 'karma-remap-istanbul']
-              : ['progress'],
+      ? ['progress', 'karma-remap-istanbul']
+      : ['progress'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
