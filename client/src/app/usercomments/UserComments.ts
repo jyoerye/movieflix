@@ -1,6 +1,4 @@
-/**
- * Created by Kyle on 2/13/2017.
- */
+
 
 export class UserComments
 {
