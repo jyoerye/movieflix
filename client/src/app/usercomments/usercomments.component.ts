@@ -48,6 +48,7 @@ export class UserCommentsComponent implements OnInit {
         this.userCommentsService.getCommentsByVideoId(params['id']).subscribe(userCommentsResponse => this.userComments = userCommentsResponse,
           error=>console.log(error))
       });
+      console.log('CheckCOmments here'+this.userComments);
   }
 
   handleResults(userComments:UserComments[])

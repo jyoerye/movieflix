@@ -1,10 +1,12 @@
-/* tslint:disable:no-unused-variable */
-/*
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+//  tslint:disable:no-unused-variable 
+
+/*import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-
+import {Router} from "@angular/router";
+import {MockRouter} from "../testing/MockRouter";
 import { DetailsComponent } from './details.component';
+import {DetailsService} from '../details.service';
 
 describe('DetailsComponent', () => {
   let component: DetailsComponent;
@@ -12,19 +14,32 @@ describe('DetailsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DetailsComponent ]
+      declarations: [ DetailsComponent ],
+      providers: [
+                { provide: Router, useClass: MockRouter}
+              //  { provide: DetailsService, useClass: MockDetailsService}       
+                               
+            ]
     })
-    .compileComponents();
+     
+  //  .compileComponents();
+     fixture = TestBed.createComponent(DetailsComponent);
+    component = fixture.componentInstance;
+
+
   }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(DetailsComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
   it('should create', () => {
+    fixture.detectChanges();
     expect(component).toBeTruthy();
   });
+
+
+
+class MockDetailsService{
+  getMovieById(string) {}
+}
+
+
 });
 */
