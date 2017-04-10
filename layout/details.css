@@ -1,0 +1,37 @@
+@CHARSET "ISO-8859-1";
+
+.details-title-row * {
+	display: inline-block;
+}
+
+
+.details-row * {
+	display: inline-block;
+	
+}
+.imp-person
+{
+	font-weight: bold;
+}
+
+.details-image
+{
+	width:30%;
+	float: left;
+}
+.details-image img{
+	width: 300px;
+	height: 444px;
+}
+
+.details-side
+{
+	width:50%;
+	float: left;
+}
+
+.details-main
+{
+	width: 80%;
+	height: 450px;
+}
